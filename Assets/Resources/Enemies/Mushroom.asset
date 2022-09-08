@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a16ee498425d32346ac42191be4d7aff, type: 3}
+  m_Name: Mushroom
+  m_EditorClassIdentifier: 
+  Faction: 1
+  name: Mushroom
+  prefab: {fileID: 9171204416029008167, guid: e1dae71e9cc7a7849b45fe7ad64f82b4, type: 3}
+  _stats:
+    Health: 150
+    AttackPower: 14
+    Speed: 43
+  Description: 
+  MenuSprite: {fileID: 0}
+  animator: {fileID: 9100000, guid: 6b991abcd14513841b2432861bc8ab3b, type: 2}
+  resistanceType: 0
+  propertyValue: 0
