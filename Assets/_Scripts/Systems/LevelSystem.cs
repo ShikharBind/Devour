@@ -1,71 +1,115 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using System.Linq;
+using GameDev.Common;
+using GameDev.Architecture;
 
-public class LevelSystem : StaticInstance<LevelSystem>
+namespace GameDev.Core
 {
-    public static int Level = 0;
-    public static ScriptableLevel levelData;
-    List<ScriptableHero> Heroes;
-    public static Dictionary<ScriptableHero,int> foodsInPlate;
-    public static Dictionary<ScriptableEnemy, int> EnemyDataofLevel;
-
-    private void Start()
+    public class LevelSystem : StaticInstance<LevelSystem>
     {
-        // levelData = ResourceSystem.Instance.LevelDictionary[Level];
-        // EnemyDataofLevel = ResourceSystem.Instance.Enemies.ToDictionary(r => r, r => 0);
-        // CountEnemies(levelData);
-        // Heroes = ResourceSystem.Instance.Heroes;
-        // CreateDefaultPlate();
-    }
+        [Serializable]
+        public struct Configuration : IConfiguration { }
 
-    // public static ScriptableLevel GetLeveldData()
-    // {
-    //     ScriptableLevel levelData = ResourceSystem.Instance.LevelDictionary[Level];
-    //     return levelData;
-    // }
-
-    // private void CreateDefaultPlate()
-    // {
-    //     foodsInPlate = Heroes.ToDictionary(r => r, r => 0);
-    //     foodsInPlate[Heroes[0]] += 3;
-    //     foodsInPlate[Heroes[1]] += 2;
-    //     foodsInPlate[Heroes[2]] += 5;
-    //     foodsInPlate[Heroes[8]] += 4;
-    //     foodsInPlate[Heroes[9]] += 3;
-
-    // }
-
-    // private void ShowPlate()
-    // {
-    //     foreach(ScriptableHero hero in Heroes)
-    //     {
-    //         Debug.Log(foodsInPlate[hero] + " ");
-    //     }
-    // }
-
-    // public static void UpdateLevel(int newLevel)
-    // {
-    //     Level = newLevel;
-    // }
-
-    public static void GetEnemyDataOfLevel()
-    {
-
-    }
-
-    private void CountEnemies(ScriptableLevel levelData)
-    {
-        foreach (Wave wave in levelData.Waves)
+        [Serializable]
+        public struct Reference : IReference
         {
-            foreach (EnemyData enemy in wave.WaveData)
+            public ResourceSystem resources;
+        }
+
+        public class State : IState
+        {
+            public int level;
+            public int totalEnemyCount;
+            public ScriptableLevel levelData;
+            public Dictionary<ScriptableHero, int> foodsInPlate;
+            public Dictionary<ScriptableEnemy, int> enemyCountinLevel;
+        }
+
+        public class Components : IComponents
+        {
+
+        }
+
+        public Configuration configuration;
+        public Reference reference;
+        public State state { get; private set; }
+        public Components components { get; private set; }
+
+        public void SetConfiguration(Configuration a_configuration)
+        {
+            this.configuration = a_configuration;
+        }
+
+        private void UpdateConfiguration()
+        {
+            SetConfiguration(configuration);
+        }
+
+        protected override void Awake()
+        {
+            base.Awake();
+            reference = new Reference();
+            state = new State();
+            components = new Components();
+
+            reference.resources = ResourceSystem.Instance;
+
+            // components.mainMenuUI = new MainMenuUI(configuration.mainMenuUIConfiguration.configuration, reference.mainMenuReference);
+        }
+
+        private void Start()
+        {
+            state.level = 0;
+            state.foodsInPlate =  reference.resources.Heroes.ToDictionary(r => r, r => 0);
+            state.enemyCountinLevel = reference.resources.Enemies.ToDictionary(r => r, r => 0);
+            // CreateDefaultPlate();
+        }
+
+        // Sets Level and coreesponding level details
+        public void SetLevel(int a_newLevel)
+        {
+            state.level = a_newLevel;
+            state.levelData = reference.resources.LevelDictionary[state.level];
+            CountEnemies(state.levelData);
+        }
+
+        private void CountEnemies(ScriptableLevel levelData)
+        {
+            state.totalEnemyCount = 0;
+            foreach(ScriptableEnemy enemy in reference.resources.Enemies){
+                state.enemyCountinLevel[enemy] = 0;
+            }
+            foreach (Wave wave in levelData.Waves)
             {
-                EnemyDataofLevel[enemy.Enemy] += enemy.Count;
+                foreach (EnemyData enemy in wave.WaveData)
+                {
+                    state.enemyCountinLevel[enemy.Enemy] += enemy.Count;
+                    state.totalEnemyCount += enemy.Count;
+                }
+            }
+
+            return;
+        }
+
+        private void CreateDefaultPlate()
+        {
+            state.foodsInPlate[reference.resources.Heroes[0]] += 3;
+            state.foodsInPlate[reference.resources.Heroes[1]] += 2;
+            state.foodsInPlate[reference.resources.Heroes[2]] += 5;
+            state.foodsInPlate[reference.resources.Heroes[8]] += 4;
+            state.foodsInPlate[reference.resources.Heroes[9]] += 3;
+        }
+
+        private void ShowPlate()
+        {
+            foreach(ScriptableHero hero in reference.resources.Heroes)
+            {
+                Debug.Log(state.foodsInPlate[hero] + " ");
             }
         }
 
-        return;
     }
-    
 }

@@ -29,6 +29,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3320126373530108109}
   m_Father: {fileID: 5428229064059391306}
@@ -120,7 +121,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1314991587624396441}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7724344906929829531}
+        m_TargetAssemblyTypeName: LevelsUIComponent, Assembly-CSharp
+        m_MethodName: SetLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &322009171352490845
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,6 +162,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3025274743429344647}
   m_RootOrder: 0
@@ -228,6 +242,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6127883868764537921}
   m_RootOrder: 0
@@ -307,6 +322,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7708690155455316234}
   m_RootOrder: 1
@@ -387,6 +403,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 89987406543835746}
   - {fileID: 4231730206124537651}
@@ -508,6 +525,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 899461335243708173}
   m_RootOrder: 0
@@ -588,6 +606,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4172852740812291554}
   m_Father: {fileID: 5428229064059391306}
@@ -679,7 +698,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6552390293248328674}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7724344906929829531}
+        m_TargetAssemblyTypeName: LevelsUIComponent, Assembly-CSharp
+        m_MethodName: SetLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4647104894829003895
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +740,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3301686444787171114}
   m_Father: {fileID: 5428229064059391306}
@@ -800,7 +832,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2472226019369019735}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7724344906929829531}
+        m_TargetAssemblyTypeName: LevelsUIComponent, Assembly-CSharp
+        m_MethodName: SetLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4822522009142126529
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,6 +874,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5292914283331460896}
   m_Father: {fileID: 5428229064059391306}
@@ -921,7 +966,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6130154443957132492}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7724344906929829531}
+        m_TargetAssemblyTypeName: LevelsUIComponent, Assembly-CSharp
+        m_MethodName: SetLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5080764799975449724
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,6 +1007,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6658566597643920218}
   m_RootOrder: 0
@@ -1031,6 +1089,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1700093905506978987}
   m_RootOrder: 0
@@ -1110,6 +1169,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7458855426627068668}
   m_RootOrder: 0
@@ -1192,6 +1252,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 633072855950398120}
   m_Father: {fileID: 5428229064059391306}
@@ -1283,7 +1344,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1039563804022777146}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7724344906929829531}
+        m_TargetAssemblyTypeName: LevelsUIComponent, Assembly-CSharp
+        m_MethodName: SetLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6605998037754477955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,6 +1385,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7708690155455316234}
   m_RootOrder: 0
@@ -1374,6 +1448,7 @@ GameObject:
   - component: {fileID: 5428229064059391306}
   - component: {fileID: 1824159615936589149}
   - component: {fileID: 7906003854816790591}
+  - component: {fileID: 7724344906929829531}
   m_Layer: 5
   m_Name: Levels Panel
   m_TagString: Untagged
@@ -1391,6 +1466,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7708690155455316234}
   - {fileID: 3025274743429344647}
@@ -1399,6 +1475,7 @@ RectTransform:
   - {fileID: 899461335243708173}
   - {fileID: 6658566597643920218}
   - {fileID: 6127883868764537921}
+  - {fileID: 9074739822638513910}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1445,6 +1522,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7724344906929829531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8917140074045154036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d72afb5b3a1776544b8884fdc211abe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9217872372778845527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1474,6 +1563,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2676497425491453194}
   m_Father: {fileID: 5428229064059391306}
@@ -1565,4 +1655,130 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2379088111037193445}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7724344906929829531}
+        m_TargetAssemblyTypeName: LevelsUIComponent, Assembly-CSharp
+        m_MethodName: SetLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1001 &8812929542501847323
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5428229064059391306}
+    m_Modifications:
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 264.864
+      objectReference: {fileID: 0}
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -651.568
+      objectReference: {fileID: 0}
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -384
+      objectReference: {fileID: 0}
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274177449596657736, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_Name
+      value: Back
+      objectReference: {fileID: 0}
+    - target: {fileID: 2052970243626834889, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2052970243626834889, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2052970243626834889, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackFromCredits
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+--- !u!224 &9074739822638513910 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 550041069478997997, guid: 6d8bbdb4d9470cb4f88c6b54408c5c0c, type: 3}
+  m_PrefabInstance: {fileID: 8812929542501847323}
+  m_PrefabAsset: {fileID: 0}

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using GameDev.Common;
 
 /// <summary>
 /// Don't specifically need anything here other than the fact it's persistent.

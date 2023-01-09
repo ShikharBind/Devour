@@ -2,85 +2,89 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameDev.Common;
 
-public class Pineapple : HeroUnitBase
+namespace GameDev.Core
 {
-    protected event Action OnAttackTime;
-
-    [SerializeField] private float timeGapInAttack = 1f;
-    private Timer _timer;
-    private List<EnemyUnitBase> currentTargetEnemies;
-    private bool _canAttack = false;
-    // Start is called before the first frame update
-    void Start()
+    public class Pineapple : HeroUnitBase
     {
-        currentTargetEnemies = new List<EnemyUnitBase>();
-        GameManager.OnFireTime += AttackEnemies;
-    }
+        protected event Action OnAttackTime;
 
-    private void OnDestroy()
-    {
-        GameManager.OnFireTime -= AttackEnemies;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // CalculateFireTime();
-        CheckWhetherCanAttack();
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.transform.CompareTag("Enemy"))
+        [SerializeField] private float timeGapInAttack = 1f;
+        private Timer _timer;
+        private List<EnemyUnitBase> currentTargetEnemies;
+        private bool _canAttack = false;
+        // Start is called before the first frame update
+        void Start()
         {
-            EnemyUnitBase enemy = other.transform.GetComponent<EnemyUnitBase>();
-            currentTargetEnemies.Add(enemy);
-            enemy.OnDestroyingEnemy += () =>
-            {
-                int numberofEnemies = currentTargetEnemies.Count;
-                currentTargetEnemies.Remove(currentTargetEnemies[numberofEnemies - 1]);
-                Debug.Log(currentTargetEnemies.Count);
-            };
+            currentTargetEnemies = new List<EnemyUnitBase>();
+            GameManager.OnFireTime += AttackEnemies;
         }
-    }
 
-    private void CalculateFireTime()
-    {
-        if (GameManager.Instance.State == GameState.InGame)
+        private void OnDestroy()
         {
-            _timer.UpdateTime(Time.deltaTime);
+            GameManager.OnFireTime -= AttackEnemies;
+        }
 
-            if (_timer.finished)
+        // Update is called once per frame
+        void Update()
+        {
+            // CalculateFireTime();
+            CheckWhetherCanAttack();
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.transform.CompareTag("Enemy"))
             {
-                Debug.Log("Attack");
-                OnAttackTime?.Invoke();
-                _timer.Reset();
+                EnemyUnitBase enemy = other.transform.GetComponent<EnemyUnitBase>();
+                currentTargetEnemies.Add(enemy);
+                enemy.OnDestroyingEnemy += () =>
+                {
+                    int numberofEnemies = currentTargetEnemies.Count;
+                    currentTargetEnemies.Remove(currentTargetEnemies[numberofEnemies - 1]);
+                    Debug.Log(currentTargetEnemies.Count);
+                };
             }
         }
-    }
 
-    private void AttackEnemies()
-    {
-        if (_canAttack)
+        private void CalculateFireTime()
         {
-            for (int i = 0; i < currentTargetEnemies.Count; i++)
+            if (GameManager.Instance.State == GameState.InGame)
             {
-                currentTargetEnemies[i].TakeDamage(Stats.AttackPower);
-            }
-            Debug.Log("Attacked Enemies");
-        }
-    }
+                _timer.Update(Time.deltaTime);
 
-    private void CheckWhetherCanAttack()
-    {
-        if (currentTargetEnemies.Count > 0)
-        {
-            _canAttack = true;
+                if (_timer.isTimeUp)
+                {
+                    Debug.Log("Attack");
+                    OnAttackTime?.Invoke();
+                    _timer.Reset();
+                }
+            }
         }
-        else
+
+        private void AttackEnemies()
         {
-            _canAttack = false;
+            if (_canAttack)
+            {
+                for (int i = 0; i < currentTargetEnemies.Count; i++)
+                {
+                    currentTargetEnemies[i].TakeDamage(Stats.AttackPower);
+                }
+                Debug.Log("Attacked Enemies");
+            }
+        }
+
+        private void CheckWhetherCanAttack()
+        {
+            if (currentTargetEnemies.Count > 0)
+            {
+                _canAttack = true;
+            }
+            else
+            {
+                _canAttack = false;
+            }
         }
     }
 }
