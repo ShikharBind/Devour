@@ -18,5 +18,6 @@ namespace GameDev.Common
             void Update() { } //update of current state if not null
             void ChangeState(IState newState) { } // OnExit -> set new state -> OnEter
         }
+        public interface IStates { }
     }
 }

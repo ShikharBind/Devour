@@ -30,10 +30,11 @@ namespace GameDev.Core
             foodTemplate.gameObject.SetActive(false);
             Heroes = ResourceSystem.Instance.Heroes;
             FoodTransformList = new List<Transform>();
+            Debug.Log(LevelSystem.Instance==null);
 
             foreach (ScriptableHero Hero in Heroes)
             {
-                if (LevelSystem.Instance.state.foodsInPlate[Hero] > 0)
+                if (LevelSystem.Instance.state.foodsInPlateDictionary[Hero] > 0)
                 {
                     Transform foodTransform = CreateTransform(foodTemplate, foodContainer, FoodTransformList);
                     CreateFoodData(Hero, foodTransform);
@@ -60,7 +61,7 @@ namespace GameDev.Core
             foodTransform.GetComponent<Image>().sprite = Hero.MenuSprite;
             foodTransform.Find("Food Name").GetComponent<Text>().text = Hero.name;
             foodTransform.Find("Food number").GetComponent<Text>()
-                .text = LevelSystem.Instance.state.foodsInPlate[Hero].ToString();
+                .text = LevelSystem.Instance.state.foodsInPlateDictionary[Hero].ToString();
             foodTransform.GetComponent<Button>().onClick.AddListener(() => { SelectHeroToDeploy(Hero); });
         }
 
@@ -69,10 +70,10 @@ namespace GameDev.Core
             Transform buttonTransform = EventSystem.current.currentSelectedGameObject.transform;
             string foodName = buttonTransform.Find("Food Name").GetComponent<Text>().text;
             Debug.Log(foodName);
-            if (LevelSystem.Instance.state.foodsInPlate[hero] > 0)
+            if (LevelSystem.Instance.state.foodsInPlateDictionary[hero] > 0)
             {
-                GameManager.Instance.currentsSelectedHero = hero;
-                // LevelSystem.Instance.foodsInPlate[hero]--;
+                GameManagerComponent.Instance.currentsSelectedHero = hero;
+                // LevelSystem.Instance.foodsInPlateDictionary[hero]--;
             }
             // ShouldAddHeroButtonbeActive();
         }
@@ -80,10 +81,10 @@ namespace GameDev.Core
         public void Deploy()
         {
             Transform buttonTransform = EventSystem.current.currentSelectedGameObject.transform;
-            if (GameManager.Instance.currentsSelectedHero != null)
+            if (GameManagerComponent.Instance.currentsSelectedHero != null)
             {
-                ScriptableHero heroToDeploy = GameManager.Instance.currentsSelectedHero;
-                if (LevelSystem.Instance.state.foodsInPlate[heroToDeploy] > 0)
+                ScriptableHero heroToDeploy = GameManagerComponent.Instance.currentsSelectedHero;
+                if (LevelSystem.Instance.state.foodsInPlateDictionary[heroToDeploy] > 0)
                 {
                     // Debug.Log(buttonTransform.parent.position);
                     Vector2 SpawnPoint = GetSpawnPoint(buttonTransform);
@@ -92,7 +93,6 @@ namespace GameDev.Core
                     UnitManager.Instance.SpawnHero(heroToDeploy, positionToSpawn, SpawnPoint);
                 }
             }
-
 
             UpdateFoodCountInPlate();
             ShouldAddHeroButtonbeActive();
@@ -133,7 +133,7 @@ namespace GameDev.Core
                 string name = food.Find("Food Name").GetComponent<Text>().text;
                 ScriptableHero hero = ResourceSystem.Instance.HeroDictionary[name];
                 food.Find("Food number").GetComponent<Text>().text = LevelSystem
-                    .Instance.state.foodsInPlate[hero].ToString();
+                    .Instance.state.foodsInPlateDictionary[hero].ToString();
             }
         }
 
@@ -142,7 +142,7 @@ namespace GameDev.Core
             foreach (Transform food in FoodTransformList)
             {
                 string name = food.Find("Food Name").GetComponent<Text>().text;
-                if (LevelSystem.Instance.state.foodsInPlate[ResourceSystem.Instance.HeroDictionary[name]] > 0)
+                if (LevelSystem.Instance.state.foodsInPlateDictionary[ResourceSystem.Instance.HeroDictionary[name]] > 0)
                 {
                     food.GetComponent<Button>().interactable = true;
                 }
@@ -150,7 +150,7 @@ namespace GameDev.Core
                 {
                     if (food.GetComponent<Button>().interactable)
                         food.GetComponent<Button>().interactable = false;
-                    // GameManager.Instance.currentsSelectedHero = null;
+                    // GameManagerComponent.Instance.currentsSelectedHero = null;
                     Debug.Log(name + " disabled");
                 }
             }

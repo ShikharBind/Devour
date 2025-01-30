@@ -99,7 +99,7 @@ namespace GameDev.Core
         public void MainMenu()
         {
             Time.timeScale = 1;
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("MainMenuScene");
         }
 
         private void PauseGameAndShowUI(GameObject UI)

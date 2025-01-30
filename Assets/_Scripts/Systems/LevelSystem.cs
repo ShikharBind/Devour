@@ -22,10 +22,10 @@ namespace GameDev.Core
         public class State : IState
         {
             public int level;
-            public int totalEnemyCount;
+            public int enemyCountinLevel;
             public ScriptableLevel levelData;
-            public Dictionary<ScriptableHero, int> foodsInPlate;
-            public Dictionary<ScriptableEnemy, int> enemyCountinLevel;
+            public Dictionary<ScriptableHero, int> foodsInPlateDictionary;
+            public Dictionary<ScriptableEnemy, int> enemyCountDictionary;
         }
 
         public class Components : IComponents
@@ -63,9 +63,9 @@ namespace GameDev.Core
         private void Start()
         {
             state.level = 0;
-            state.foodsInPlate =  reference.resources.Heroes.ToDictionary(r => r, r => 0);
-            state.enemyCountinLevel = reference.resources.Enemies.ToDictionary(r => r, r => 0);
-            // CreateDefaultPlate();
+            state.foodsInPlateDictionary =  reference.resources.Heroes.ToDictionary(r => r, r => 0);
+            state.enemyCountDictionary = reference.resources.Enemies.ToDictionary(r => r, r => 0);
+            CreateDefaultPlate();
         }
 
         // Sets Level and coreesponding level details
@@ -74,20 +74,21 @@ namespace GameDev.Core
             state.level = a_newLevel;
             state.levelData = reference.resources.LevelDictionary[state.level];
             CountEnemies(state.levelData);
+            ResetPlate();
         }
 
         private void CountEnemies(ScriptableLevel levelData)
         {
-            state.totalEnemyCount = 0;
+            state.enemyCountinLevel = 0;
             foreach(ScriptableEnemy enemy in reference.resources.Enemies){
-                state.enemyCountinLevel[enemy] = 0;
+                state.enemyCountDictionary[enemy] = 0;
             }
             foreach (Wave wave in levelData.Waves)
             {
                 foreach (EnemyData enemy in wave.WaveData)
                 {
-                    state.enemyCountinLevel[enemy.Enemy] += enemy.Count;
-                    state.totalEnemyCount += enemy.Count;
+                    state.enemyCountDictionary[enemy.Enemy] += enemy.Count;
+                    state.enemyCountinLevel += enemy.Count;
                 }
             }
 
@@ -96,18 +97,26 @@ namespace GameDev.Core
 
         private void CreateDefaultPlate()
         {
-            state.foodsInPlate[reference.resources.Heroes[0]] += 3;
-            state.foodsInPlate[reference.resources.Heroes[1]] += 2;
-            state.foodsInPlate[reference.resources.Heroes[2]] += 5;
-            state.foodsInPlate[reference.resources.Heroes[8]] += 4;
-            state.foodsInPlate[reference.resources.Heroes[9]] += 3;
+            state.foodsInPlateDictionary[reference.resources.Heroes[0]] += 3;
+            state.foodsInPlateDictionary[reference.resources.Heroes[1]] += 2;
+            state.foodsInPlateDictionary[reference.resources.Heroes[2]] += 5;
+            state.foodsInPlateDictionary[reference.resources.Heroes[8]] += 4;
+            state.foodsInPlateDictionary[reference.resources.Heroes[9]] += 3;
+        }
+        
+        private void ResetPlate()
+        {
+            foreach(ScriptableHero hero in reference.resources.Heroes)
+            {
+                state.foodsInPlateDictionary[hero] = 0;
+            }
         }
 
         private void ShowPlate()
         {
             foreach(ScriptableHero hero in reference.resources.Heroes)
             {
-                Debug.Log(state.foodsInPlate[hero] + " ");
+                Debug.Log(state.foodsInPlateDictionary[hero] + " ");
             }
         }
 

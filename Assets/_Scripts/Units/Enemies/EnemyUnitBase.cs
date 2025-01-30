@@ -54,7 +54,7 @@ namespace GameDev.Core
 
             if (other.gameObject.CompareTag("Finish"))
             {
-                GameManager.Instance.ChangeState(GameState.Lose);
+                GameManagerComponent.Instance.ChangeState(GameState.Lose);
             }
         }
 
@@ -77,7 +77,7 @@ namespace GameDev.Core
 
         private void CalculateFireTime()
         {
-            if (GameManager.Instance.State == GameState.InGame)
+            if (GameManagerComponent.Instance.State == GameState.InGame)
             {
                 _timer.Update(Time.deltaTime);
 
@@ -120,16 +120,16 @@ namespace GameDev.Core
                 Destroy(gameObject, 1.33f);
 
                 OnDestroyingEnemy?.Invoke();
-                EnemyManager enemyManager = EnemyManager.Instance;
-                enemyManager.livingSpawnedEnemyDictionary[Enemy]--;
-                Debug.Log(Enemy.name + " " + enemyManager.livingSpawnedEnemyDictionary[Enemy]);
-                if (enemyManager.livingSpawnedEnemyDictionary[Enemy] <= 0)
-                {
-                    Debug.Log(Enemy.name + " removing");
-                    enemyManager.livingSpawnedEnemyDictionary.Remove(Enemy);
-                    Debug.Log(Enemy.name + " removed");
-                    Debug.Log(enemyManager.livingSpawnedEnemyDictionary.Count);
-                }
+                // EnemyManager enemyManager = GameManagerComponent.Instance.components.gameManager.components.enemyManager;
+                // enemyManager.livingSpawnedEnemyDictionary[Enemy]--;
+                // Debug.Log(Enemy.name + " " + enemyManager.livingSpawnedEnemyDictionary[Enemy]);
+                // if (enemyManager.livingSpawnedEnemyDictionary[Enemy] <= 0)
+                // {
+                //     Debug.Log(Enemy.name + " removing");
+                //     enemyManager.livingSpawnedEnemyDictionary.Remove(Enemy);
+                //     Debug.Log(Enemy.name + " removed");
+                //     Debug.Log(enemyManager.livingSpawnedEnemyDictionary.Count);
+                // }
             }
         }
     }

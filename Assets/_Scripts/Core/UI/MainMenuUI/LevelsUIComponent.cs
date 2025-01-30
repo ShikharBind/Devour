@@ -10,7 +10,7 @@ namespace GameDev.Core
         public void SetLevel(int a_levelNumber)
         {
             LevelSystem.Instance.SetLevel(a_levelNumber);
-            SceneManager.LoadScene("PreGame");
+            SceneManager.LoadScene("FoodSelectionScene");
         }
     }
 }

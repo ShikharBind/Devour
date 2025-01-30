@@ -66,7 +66,7 @@ namespace GameDev.Core
                 Quaternion rot;
                 if (Hero.name == "Carrot" || Hero.name == "Ice Cream Cone")
                 {
-                    rot = Quaternion.EulerAngles(0, 0, 90);
+                    rot = Quaternion.Euler(0, 0, 90);
                 }
                 else
                 {

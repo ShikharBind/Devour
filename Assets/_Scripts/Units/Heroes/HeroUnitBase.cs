@@ -19,9 +19,9 @@ namespace GameDev.Core
         protected Sprite profileSprite;
 
 
-        // private void Awake() => GameManager.OnBeforeStateChanged += OnStateChanged;
+        // private void Awake() => GameManagerComponent.OnBeforeStateChanged += OnStateChanged;
 
-        // private void OnDestroy() => GameManager.OnBeforeStateChanged -= OnStateChanged;
+        // private void OnDestroy() => GameManagerComponent.OnBeforeStateChanged -= OnStateChanged;
 
 
         void Start()
@@ -42,7 +42,7 @@ namespace GameDev.Core
 
         // private void OnMouseDown() {
         //     // Only allow interaction when it's the hero turn
-        //     if (ExampleGameManager.Instance.State != GameState.HeroTurn) return;
+        //     if (ExampleGameManagerComponent.Instance.State != GameState.HeroTurn) return;
 
         //     // Don't move if we've already moved
         //     if (!_canMove) return;
@@ -64,7 +64,7 @@ namespace GameDev.Core
 
         private void CalculateFireTime()
         {
-            if (GameManager.Instance.State == GameState.InGame)
+            if (GameManagerComponent.Instance.State == GameState.InGame)
             {
                 _timer.Update(Time.deltaTime);
 
@@ -82,7 +82,7 @@ namespace GameDev.Core
         {
             if (shotsFired >= maxShots)
             {
-                GameManager.Instance.heroSpawnSlots[(int)SpawnSlot.x][(int)SpawnSlot.y] = false;
+                GameManagerComponent.Instance.heroSpawnSlots[(int)SpawnSlot.x][(int)SpawnSlot.y] = false;
                 Destroy(gameObject);
                 Debug.Log("Destroyed after shotLimit Reached");
             }

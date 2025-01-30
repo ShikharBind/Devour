@@ -18,12 +18,12 @@ namespace GameDev.Core
         void Start()
         {
             currentTargetEnemies = new List<EnemyUnitBase>();
-            GameManager.OnFireTime += AttackEnemies;
+            // GameManager.OnFireTime += AttackEnemies;
         }
 
         private void OnDestroy()
         {
-            GameManager.OnFireTime -= AttackEnemies;
+            // GameManager.OnFireTime -= AttackEnemies;
         }
 
         // Update is called once per frame
@@ -50,7 +50,7 @@ namespace GameDev.Core
 
         private void CalculateFireTime()
         {
-            if (GameManager.Instance.State == GameState.InGame)
+            if (GameManagerComponent.Instance.State == GameState.InGame)
             {
                 _timer.Update(Time.deltaTime);
 

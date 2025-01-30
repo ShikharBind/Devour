@@ -17,9 +17,9 @@ namespace GameDev.Core
         private int timeSpeed;
 
 
-        private void Awake() => GameManager.OnBeforeStateChanged += OnStateChanged;
+        private void Awake() => GameManagerComponent.OnBeforeStateChanged += OnStateChanged;
 
-        private void OnDestroy() => GameManager.OnBeforeStateChanged -= OnStateChanged;
+        private void OnDestroy() => GameManagerComponent.OnBeforeStateChanged -= OnStateChanged;
 
 
         // Start is called before the first frame update
@@ -33,7 +33,7 @@ namespace GameDev.Core
         {
             if (Input.GetKeyDown("escape"))
             {
-                GameManager.Instance.ChangeState(GameState.Pause);
+                GameManagerComponent.Instance.ChangeState(GameState.Pause);
             }
         }
 
@@ -57,7 +57,7 @@ namespace GameDev.Core
 
         public void Pause()
         {
-            GameManager.Instance.ChangeState(GameState.Pause);
+            GameManagerComponent.Instance.ChangeState(GameState.Pause);
         }
 
         // public void SpeedChange()
@@ -83,7 +83,7 @@ namespace GameDev.Core
 
         public void Resume()
         {
-            GameManager.Instance.ChangeState(GameState.InGame);
+            GameManagerComponent.Instance.ChangeState(GameState.InGame);
         }
 
         public void RestartLevel()

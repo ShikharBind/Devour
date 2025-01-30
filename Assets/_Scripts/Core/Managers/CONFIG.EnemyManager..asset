@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8302098fc8e80d947aa9dcbe8ebec4d2, type: 3}
-  m_Name: CONFIG.MainMenuUIConfiguration.
+  m_Script: {fileID: 11500000, guid: 0be4ef8bc17b2214b8a91265cf4fa23f, type: 3}
+  m_Name: CONFIG.EnemyManager.
   m_EditorClassIdentifier: 
   configuration:
-    fsmConfiguration: {fileID: 11400000, guid: db76e68ecbd39e54a97c472970a6d2e1, type: 2}
+    timeBeforeWave: 2
+    minTimeGapbwSpawn: 1
+    maxTimeGapbwSpawn: 5
+    timeGapBetweenWaves: 10

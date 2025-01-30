@@ -39,7 +39,7 @@ namespace GameDev.Core
 
         private void CalculateFireTime(Timer timer, Action eventFire)
         {
-            if (GameManager.Instance.State == GameState.InGame)
+            if (GameManagerComponent.Instance.State == GameState.InGame)
             {
                 timer.Update(Time.deltaTime);
 

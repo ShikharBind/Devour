@@ -33,14 +33,14 @@ namespace GameDev.Core
 
         public void SpawnHero(ScriptableHero Hero, Vector3 pos, Vector2 slot)
         {
-            if (!GameManager.Instance.heroSpawnSlots[(int)slot.x][(int)slot.y] &&
-                LevelSystem.Instance.state.foodsInPlate[Hero] > 0)
+            if (!GameManagerComponent.Instance.heroSpawnSlots[(int)slot.x][(int)slot.y] &&
+                LevelSystem.Instance.state.foodsInPlateDictionary[Hero] > 0)
             {
                 GameObject spawned = SpawnUnit(Hero, pos, Quaternion.identity);
                 spawned.GetComponent<HeroUnitBase>().Hero = Hero;
                 spawned.GetComponent<HeroUnitBase>().SpawnSlot = slot;
-                GameManager.Instance.heroSpawnSlots[(int)slot.x][(int)slot.y] = true;
-                LevelSystem.Instance.state.foodsInPlate[Hero]--;
+                GameManagerComponent.Instance.heroSpawnSlots[(int)slot.x][(int)slot.y] = true;
+                LevelSystem.Instance.state.foodsInPlateDictionary[Hero]--;
             }
         }
 

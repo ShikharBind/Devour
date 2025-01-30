@@ -9,6 +9,7 @@ namespace GameDev.Common
         static void OnRuntimeMethodLoad()
         {
             UnityEngine.Object.Instantiate(Resources.Load("Systems"));
+            UnityEngine.Object.Instantiate(Resources.Load("GameManager"));
             // Debug.Log("After Scene is loaded and game is running");
         }
     }

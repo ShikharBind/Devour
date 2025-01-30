@@ -43,7 +43,7 @@ namespace GameDev.Core
         void Start()
         {
             _levelData = LevelSystem.Instance.state.levelData;
-            EnemyDataofLevel = LevelSystem.Instance.state.enemyCountinLevel;
+            EnemyDataofLevel = LevelSystem.Instance.state.enemyCountDictionary;
             OnPreGameStart?.Invoke();
             ShowLevelData();
             CreateFoods();
@@ -109,7 +109,7 @@ namespace GameDev.Core
             foodTransform.Find("FoodButton").GetComponent<Image>().sprite = Hero.MenuSprite;
             foodTransform.Find("Food Name").GetComponent<Text>().text = Hero.name;
             foodTransform.Find("Food number").GetComponent<Text>()
-                .text = LevelSystem.Instance.state.foodsInPlate[Hero].ToString();
+                .text = LevelSystem.Instance.state.foodsInPlateDictionary[Hero].ToString();
             foodTransform.Find("FoodButton").GetComponent<Button>().onClick.AddListener(() =>
             {
                 pregameUI.ShowFoodCard(Hero);
@@ -139,9 +139,9 @@ namespace GameDev.Core
                 return;
             }
             plateSizeText.text = plateSpace.ToString();
-            LevelSystem.Instance.state.foodsInPlate[Hero]++;
+            LevelSystem.Instance.state.foodsInPlateDictionary[Hero]++;
             parentTransform.Find("Food number").GetComponent<Text>()
-                .text = LevelSystem.Instance.state.foodsInPlate[Hero].ToString();
+                .text = LevelSystem.Instance.state.foodsInPlateDictionary[Hero].ToString();
 
             parentTransform.Find("Remove Food").GetComponent<Button>()
                 .interactable = true;
@@ -158,19 +158,19 @@ namespace GameDev.Core
             Debug.Log(foodName + " removed");
 
             //Checking for food count in plate
-            if (LevelSystem.Instance.state.foodsInPlate[Hero] <= 0) return;
-            LevelSystem.Instance.state.foodsInPlate[Hero]--;
+            if (LevelSystem.Instance.state.foodsInPlateDictionary[Hero] <= 0) return;
+            LevelSystem.Instance.state.foodsInPlateDictionary[Hero]--;
             //calculating remaining space in plate
             plateSpace += Hero.calorieValue;
             plateSizeText.text = plateSpace.ToString();
 
             buttonTransform.parent.Find("Food number").GetComponent<Text>()
-                .text = LevelSystem.Instance.state.foodsInPlate[Hero].ToString();
+                .text = LevelSystem.Instance.state.foodsInPlateDictionary[Hero].ToString();
 
 
             //remove button should be active or not
 
-            if (LevelSystem.Instance.state.foodsInPlate[Hero] <= 0)
+            if (LevelSystem.Instance.state.foodsInPlateDictionary[Hero] <= 0)
             {
                 buttonTransform.GetComponent<Button>().interactable = false;
             }
@@ -236,7 +236,7 @@ namespace GameDev.Core
             Music.Stop();
             EatingAudio.Play();
             yield return new WaitForSeconds(5);
-            SceneManager.LoadScene("MainScene");
+            SceneManager.LoadScene("GameScene");
         }
     }
 }

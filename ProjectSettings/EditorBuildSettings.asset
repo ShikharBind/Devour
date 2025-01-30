@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/MainMenuScene.unity
     guid: 7fa1b1b46d7dc6b4da4d9d28e575c1b7
   - enabled: 1
-    path: Assets/Scenes/PreGame.unity
+    path: Assets/Scenes/FoodSelectionScene.unity
     guid: 9fd666fa69072b34cb9fced79410083a
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
+    path: Assets/Scenes/GameScene.unity
     guid: 7b51a042ad615834f8b9f78fcd531b36
   m_configObjects: {}
